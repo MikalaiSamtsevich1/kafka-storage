@@ -1,0 +1,13 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: metadata-files-service
+zookeeper:
+  url: ${zookeeper.url}
+  sleep-ms-between-retries: 100
+  max-retries: 3
+  base-path: /files
+logging:
+  level:
+    com.modsen.metadatafilesservice: debug

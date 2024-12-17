@@ -1,0 +1,33 @@
+spring:
+  codec:
+    max-in-memory-size: 500KB
+  application:
+    name: uploader-files-service
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:lockdb
+    driverClassName: org.h2.Driver
+    password: password
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+metadata-service:
+  url: ${METADATA_SERVICE_URL:http://localhost:8071}
+kafka:
+  message-size: 512000
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  producer:
+    linger-ms: 50
+    batch-size: 512000
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+    compression-type: zstd
+logging:
+  level:
+    com.modsen.uploaderfilesservice: debug
+server:
+  port: 8081
