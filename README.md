@@ -51,20 +51,6 @@ There are two `docker-compose` configurations in this project:
    docker-compose -f compose-tools.yml up
    ```
 
-### Running Tests
-
-To run tests, you can execute the following Gradle commands:
-
-- **Unit Tests**: Run unit tests with the following command:
-  ```bash
-  ./gradlew unitTest
-  ```
-
-- **Integration Tests**: Run integration tests with the following command:
-  ```bash
-  ./gradlew integrationTest
-  ```
-
 ### Frontend Example
 
 There is an example frontend in the `frontend-example` directory that demonstrates how to interact with the backend service. This can be used to upload and download files, as well as view file metadata.
