@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Kafka Storage Example</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/web-streams-polyfill@2.0.2/dist/ponyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/streamsaver@2.0.3/StreamSaver.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Kafka Storage Example</h1>
+</header>
+
+<section class="owner-section">
+    <label for="ownerName">Owner Name:</label>
+    <input id="ownerName" name="ownerName" placeholder="Owner Name" required type="text"/>
+</section>
+
+<section class="upload-section">
+    <h2>Upload Folder or File</h2>
+    <form class="form-inline" id="uploadForm">
+        <div>
+            <input multiple name="folder" type="file" webkitdirectory/>
+            <button id="uploadButton" type="button">Upload Folder</button>
+        </div>
+        <div>
+            <input id="singleFileInput" name="file" type="file"/>
+            <button id="uploadSingleButton" type="button">Upload File</button>
+        </div>
+    </form>
+    <div id="progress"></div>
+</section>
+
+
+<section class="download-section">
+    <h2>Download File</h2>
+    <form class="form-inline" id="downloadForm">
+        <input id="path" name="path" placeholder="Path" required type="text">
+        <input id="fileName" name="fileName" placeholder="File Name" required type="text">
+        <input id="fileUUID" name="fileUUID" placeholder="File UUID" required type="text">
+        <button type="submit">Download</button>
+    </form>
+</section>
+
+<section class="folder-section">
+    <h2>Get Folder Content</h2>
+    <form class="form-inline" id="folderForm">
+        <input id="folderPath" placeholder="Folder Path" required type="text">
+        <button type="submit">Get Content</button>
+    </form>
+    <div id="folderContent"></div>
+</section>
+
+<section class="delete-file-section">
+    <h2>Delete File</h2>
+
+    <form class="form-inline" id="deleteFileForm">
+        <div>
+            <label for="filePathDelete"></label>
+            <input id="filePathDelete" name="filePath" placeholder="File Path" required type="text">
+        </div>
+        <div>
+            <label for="fileUUIDDelete"></label>
+            <input id="fileUUIDDelete" name="fileUUID" placeholder="File UUID" required type="text">
+        </div>
+        <div>
+            <label for="fileNameDelete"></label>
+            <input id="fileNameDelete" name="fileName" placeholder="File Name" required type="text">
+        </div>
+        <button id="deleteFileButton" type="button">Delete File</button>
+    </form>
+
+    <div id="deleteFileProgress"></div>
+</section>
+
+<section class="delete-folder-section">
+    <h2>Delete Folder</h2>
+
+    <form class="form-inline" id="deleteFolderForm">
+        <div>
+            <label for="folderPathDelete"></label>
+            <input id="folderPathDelete" name="folderPath" placeholder="Folder Path" required type="text">
+        </div>
+        <button id="deleteFolderButton" type="button">Delete Folder</button>
+    </form>
+
+    <div id="deleteFolderProgress"></div>
+</section>
+
+
+<script defer src="js/actions.js" type="module"></script>
+<script defer src="js/upload.js" type="module"></script>
+<script defer src="js/download.js" type="module"></script>
+<script defer src="js/folder.js" type="module"></script>
+
+</body>
+</html>

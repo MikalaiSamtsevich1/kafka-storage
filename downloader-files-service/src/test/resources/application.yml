@@ -1,0 +1,22 @@
+spring:
+  codec:
+    max-in-memory-size: 500KB
+  application:
+    name: downloader-files-service
+metadata-service:
+  url: ${metadata-service.url}
+kafka:
+  message-size: 512000
+  bootstrap-servers: ${kafka.bootstrap-servers}
+  consumer:
+    group-id: file-consumer-group
+    auto-offset-reset: earliest
+    enable-auto-commit: false
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+logging:
+  level:
+    com.modsen.downloaderfilesservice: debug
+server:
+  port: 8082
